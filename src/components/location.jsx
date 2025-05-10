@@ -40,6 +40,10 @@ const Map = styled.div`
   padding: 0;
 `;
 
+const TextStyle = styled.span`
+  font-weight: bold;
+`;
+
 const Location = () => {
   // 카카오 맵 불러오기
 
@@ -99,27 +103,52 @@ const Location = () => {
       </Divider>
       <Image src={Flower} />
       <Map
-        id="daumRoughmapContainer1652464367301"
+        id="daumRoughmapContainer1746859061715"
         className="root_daum_roughmap root_daum_roughmap_landing"
       ></Map>
       <Content>
-        대구 수성구 두산동 888-2번지
+        서울 영등포구 문래로 164 SK리더스뷰
         <br />
-        호텔수성 수성스퀘어 3층 피오니홀
-        <br />
-        <br />
-        <Title>버스 이용시</Title>
-        <br />
-        <br />
-        410-1, 401 호텔수성 앞 하차
-        <br />
-        수성1-1, 수성3-1, 814 TBC방송국 앞 하차
+        JK아트컨벤션 4층 엠버루체홀
         <br />
         <br />
         <Title>지하철 이용시</Title>
         <br />
         <br />
-        3호선 수성못역 하차 (도보 10분)
+        2호선 문래역 하차
+        <br />
+        <br />
+        [셔틀버스] 4번 출구 (뒷편)
+        <br />
+        [도보] 5번 출구에서 전방 직진 300m
+        <br />
+        <br />
+        <Title>버스 이용시</Title>
+        <br />
+        <br />
+        <TextStyle>문래역 정류장 하차</TextStyle>
+        <br />
+        [지] 6211, 6625
+        [간] 641
+        [마] 영등포12
+        <br />
+        <br />
+        문래주민센터 / 영일시장.록스 정류장 하차
+        <br />
+        [마] 영등포05
+        <br />
+        <br />
+        벽산메가트리움APT 정류장 하차
+        <br />
+        [지] 6516
+        <br />
+        <br />
+        <Title>자가 이용시</Title>
+        <br />
+        네비게이션에 "JK아트컨벤션" 또는 "문래동 SK리더스뷰" 검색
+        <br />
+        2시간 무료 주차
+        <br />
       </Content>
     </Wrapper>
   );

@@ -44,12 +44,72 @@ const GroomBride = styled.p`
   text-align: center;
 `;
 
+const Naming = styled.span`
+  font-weight: bold;
+`;
+
 const Image = styled.img`
   display: block;
   margin: 0 auto;
   width: 1.375rem;
   padding-bottom: 42px;
 `;
+
+const GroomText = () => {
+  return (
+    <>
+      {GROOM_FATHER_NAME && GROOM_MOTHER_NAME ? (
+        <>
+          <Naming>{GROOM_FATHER_NAME}</Naming> 님과 <Naming>{GROOM_MOTHER_NAME}</Naming> 님
+        </>
+      ) : (
+        GROOM_FATHER_NAME ? (
+          <>
+            <Naming>{GROOM_FATHER_NAME}</Naming> 님
+          </>
+        ) : (
+          <>
+            <Naming>{GROOM_MOTHER_NAME}</Naming> 님
+          </>
+        )
+      )}
+        <>
+          의 아들
+          <br />
+          <Naming>{GROOM_NAME}</Naming>
+          <br />
+        </>
+    </>
+  );
+}
+
+const BrideText = () => {
+  return (
+    <>
+      {BRIDE_FATHER_NAME && BRIDE_MOTHER_NAME ? (
+        <>
+          <Naming>{BRIDE_FATHER_NAME}</Naming> 님과 <Naming>{BRIDE_MOTHER_NAME}</Naming> 님
+        </>
+      ) : (
+        BRIDE_FATHER_NAME ? (
+          <>
+            <Naming>{BRIDE_FATHER_NAME}</Naming> 님
+          </>
+        ) : (
+          <>
+            <Naming>{BRIDE_MOTHER_NAME}</Naming> 님
+          </>
+        )
+      )}
+        <>
+          의 딸
+          <br />
+          <Naming>{BRIDE_NAME}</Naming>
+          <br />
+        </>
+    </>
+  );
+}
 
 const Greeting = () => {
   return (
@@ -74,9 +134,9 @@ const Greeting = () => {
         앞날을 축복해 주시면 감사하겠습니다.
       </Content>
       <GroomBride data-aos="fade-up">
-        {GROOM_FATHER_NAME} · {GROOM_MOTHER_NAME}의 장남 {GROOM_NAME}
+        {GroomText()}
         <br />
-        {BRIDE_FATHER_NAME} · {BRIDE_MOTHER_NAME}의 장녀 {BRIDE_NAME}
+        {BrideText()}
       </GroomBride>
     </Wrapper>
   );

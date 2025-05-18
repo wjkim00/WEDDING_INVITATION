@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import {
   WEDDING_DATE,
   WEDDING_LOCATION,
   GROOM_NAME,
   BRIDE_NAME,
-  GROOM_NAME_EN,
-  BRIDE_NAME_EN,
 } from "../../config.js";
-import BackgroundVideo from "../assets/backgroundvv.mp4";
+
+import BackgroundVideoStiilCut from "../assets/BackgroundVideo_stillcut.webp";
+// import BackgroundVideo from "../assets/BackgroundVideo.webm";
+const BackgroundVideo = "https://cdn.jsdelivr.net/gh/wjkim00/WEDDING_INVITATION/src/assets/BackgroundVideo.webm"
 
 function VerticalLine() {
   return (
@@ -19,7 +20,7 @@ function VerticalLine() {
         alignItems: 'center',
         columnGap: '20px',
         padding: '20px',
-        height: '150px',
+        height: '200px',
       }}
     >
       <div></div>
@@ -112,7 +113,7 @@ const GroomBride = styled.p`
 
 const Schedule = styled.p`
   font-family: "MaruBuri";
-  font-size: .8rem;
+  font-size: .9rem;
   opacity: 0.65;
   margin-bottom: 24px;
 `;
@@ -127,6 +128,24 @@ const WelcomeMessage = styled.div`
   align-items: flex-end;
 `
 const Title = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          v.load();      // 실제 소스 다운로드 시작
+          v.play();
+          io.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <>
       <TitleLayout>
@@ -137,8 +156,8 @@ const Title = () => {
           welcome to.
         </WelcomeMessage>
       </TitleLayout>
-      <VideoBackground autoPlay loop muted playsInline={true}>
-        <source src={BackgroundVideo} type="video/mp4" />
+      <VideoBackground ref={videoRef} loop muted playsInline={true} preload="none" poster={BackgroundVideoStiilCut}>
+        <source src={BackgroundVideo} type="video/webm" />
       </VideoBackground>
       <Layout>
         <GroomBride>

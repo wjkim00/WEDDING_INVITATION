@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Divider } from "antd";
 import styled from "styled-components";
 import Flower from "../assets/flower2.png";
@@ -7,7 +7,7 @@ import { Spacer } from "../utils/tags";
 
 const Wrapper = styled.div`
   font-family: "MaruBuri";
-  padding-top: 42px;
+  padding-top: 4rem;
   width: 80%;
   margin: 0 auto;
 `;
@@ -28,7 +28,7 @@ const Image = styled.img`
   padding-bottom: 42px;
 `;
 
-const Content = styled.p`
+const Content = styled.div`
   font-family: "MaruBuri";
   font-size: 0.875rem;
   line-height: 1.75;
@@ -50,83 +50,64 @@ const TextStyle = styled.span`
   font-weight: bold;
 `;
 
-// <!-- * 카카오맵 - 지도퍼가기 -->
-// <!-- 1. 지도 노드 -->
-// <div id="daumRoughmapContainer1746867156702" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-//
-// <!--
-// 	2. 설치 스크립트
-// 	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
-// -->
-// <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-//
-// <!-- 3. 실행 스크립트 -->
-// <script charset="UTF-8">
-// 	new daum.roughmap.Lander({
-// 		"timestamp" : "1746867156702",
-// 		"key" : "2ny3n",
-// 		"mapWidth" : "640",
-// 		"mapHeight" : "360"
-// 	}).render();
-// </script>
-
-//
-
 const Location = () => {
   // 카카오 맵 불러오기
-
-  // <!-- 3. 실행 스크립트 -->
-  const executeScript = () => {
-    const scriptTag = document.createElement("script");
-    const inlineScript = document.createTextNode(`new daum.roughmap.Lander({
-      "timestamp" : "1746867156702",
-      "key" : "2ny3n",
-      "mapWidth" : "640",
-      "mapHeight" : "360"
-    }).render();`);
-    scriptTag.appendChild(inlineScript);
-    document.body.appendChild(scriptTag);
-  };
-
-  // <!-- 2. 설치 스크립트 * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다. -->
-  // document.write 문제가 발생해서 해당 파일을 직접 가져온다음 수정했음
-  const InstallScript = () => {
-    (function() {
-      var c = (window.location.protocol=="https:") ? "https:" : "http:";
-      var a = "7a65d0c7";
-      var p = "prod";
-
-      if (window.daum && window.daum.roughmap && window.daum.roughmap.cdn) {
-        return;
-      }
-      window.daum = window.daum || {};
-      window.daum.roughmap = {
-        phase : p,
-        cdn : a,
-        URL_KEY_DATA_LOAD_PRE : c + "//t1.daumcdn.net/roughmap/",
-        url_protocal : c,
-        url_cdn_domain: "//t1.daumcdn.net"
-       };
-       var b = c
-             + "//t1.daumcdn.net/kakaomapweb/roughmap/place/"
-             + p
-             + "/"
-             + a
-             +"/roughmapLander.js";
-
-      const scriptTag = document.createElement("script");
-      scriptTag.charset = "UTF-8";
-      scriptTag.src = b;
-      document.body.appendChild(scriptTag);
-      scriptTag.onload = () => {
-        executeScript();
-      };
-    })();
-  };
+  const mapRef = useRef(null);        // ① 컨테이너 참조
 
   useEffect(() => {
-    InstallScript();
-  }, [InstallScript]);
+    let loaded = false;               // 중복 실행 방지
+
+    const initMap = () => {
+      if (loaded) return; loaded = true;
+      console.log('카카오 맵 스크립트 로드 완료');
+      const scriptTag = document.createElement("script");
+      const inlineScript = document.createTextNode(`new daum.roughmap.Lander({
+        timestamp: '1748360287160',
+        key: '2j4iwxn6i4r',
+        mapHeight: '360',
+      }).render();`);
+      scriptTag.appendChild(inlineScript);
+      document.body.appendChild(scriptTag);
+    };
+
+  const installScript = () => {
+    const c = window.location.protocol === 'https:' ? 'https:' : 'http:';
+    const a = '7a65d0c7';
+    const p = 'prod';
+
+    if (window.daum?.roughmap?.cdn) return;
+
+    window.daum = window.daum || {};
+    window.daum.roughmap = {
+      phase: p,
+      cdn: a,
+      URL_KEY_DATA_LOAD_PRE: `${c}//t1.daumcdn.net/roughmap/`,
+      url_protocal: c,
+      url_cdn_domain: '//t1.daumcdn.net',
+    };
+
+    const src = `${c}//t1.daumcdn.net/kakaomapweb/roughmap/place/${p}/${a}/roughmapLander.js`;
+    const loader = document.createElement('script');
+    loader.src = src;
+    loader.charset = 'UTF-8';
+    loader.onload = initMap;
+    document.body.appendChild(loader);
+  };
+
+    /** ③ ResizeObserver 로 컨테이너 폭이 0 초과될 때까지 대기 */
+    const container = mapRef.current;
+    if (!container) return;
+    const ro = new ResizeObserver(([entry]) => {
+      if (entry.contentRect.width > 0) {
+        ro.disconnect();   // 크기 확정 → 더 안 봐도 됨
+        installScript();
+      }
+    });
+    ro.observe(container);
+
+    /** 클린업 */
+    return () => ro.disconnect();
+  }, []);
 
   return (
     <Wrapper>
@@ -135,7 +116,8 @@ const Location = () => {
       </Divider>
       <Image src={Flower} />
       <Map
-        id="daumRoughmapContainer1746867156702"
+        ref={mapRef}
+        id="daumRoughmapContainer1748360287160"
         className="root_daum_roughmap root_daum_roughmap_landing"
       ></Map>
       <Content>

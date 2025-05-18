@@ -1,0 +1,50 @@
+
+@font-face {
+    font-family: "Nanum Pen Script";
+    src: url("../assets/fonts/NanumPenScript-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+.ready-screen {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.handwriting {
+  font-family: 'Nanum Pen Script', cursive;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  border-right: .15em solid #000;
+  width: 0;
+}
+
+@keyframes typing1 {
+  to { width: var(--target-width); }
+}
+
+@keyframes typing2 {
+  to { width: var(--target-width); }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}
+
+.fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-50px); }
+}

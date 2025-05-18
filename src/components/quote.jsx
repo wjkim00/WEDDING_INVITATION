@@ -4,7 +4,7 @@ import QuotePaper from "../assets/Quote.png";
 import Flower from "../assets/flower1.png";
 
 const Wrapper = styled.div`
-  padding-top: 42px;
+  padding-top: 4rem;
   padding-left: 22px;
   padding-right: 22px;
   width: 100%;
@@ -18,6 +18,7 @@ const Content = styled.span`
   margin: 0 auto;
   font-size: 1.2rem;
   font-family: "mom_to_daughter";
+  font-weight: bold;
   text-align: center;
   color: var(--title-color);
   line-height: 2.25rem;

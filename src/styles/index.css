@@ -100,3 +100,23 @@
   font-style: normal;
   font-display: swap;
 }
+
+
+
+.thumbs-swiper .swiper-slide {
+  opacity: 0.4;
+}
+
+.thumbs-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+  border: 2px solid var(--title-color);
+  border-radius: 4px;
+}
+
+.modal-swiper {
+  overflow: hidden;
+}
+
+.react-transform-wrapper {
+  margin: auto !important;
+}

@@ -22,6 +22,7 @@ import "aos/dist/aos.css";
 const { Footer } = Layout;
 
 const Wrapper = styled.div`
+  font-family: "HANDotum";
   background: #efebe9;
   background-image: url(${GroovePaper});
   width: 100%;

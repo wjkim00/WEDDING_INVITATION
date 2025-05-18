@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
+  font-family: "HANDotum";
   font-size: 1rem;
   color: var(--title-color);
   font-weight: bold;
@@ -24,7 +25,7 @@ const images = image.map((imgSrc) => {
   return {
     original: imgSrc.default,
     thumbnail: imgSrc.default,
-    thumbnailLoading: "lazy",
+    thumbnailLoading: "eager",
   };
 });
 
@@ -32,7 +33,7 @@ const Gallery = () => {
   return (
     <Wrapper>
       <Divider style={{ marginTop: 0, marginBottom: 32 }} plain>
-        <Title>우리의 아름다운 순간</Title>
+        <Title>GALLERY</Title>
       </Divider>
       <ImageGallery
         showPlayButton={false}

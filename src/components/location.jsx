@@ -2,14 +2,18 @@ import React, { useEffect } from "react";
 import { Divider } from "antd";
 import styled from "styled-components";
 import Flower from "../assets/flower2.png";
+import Emoji from "react-emoji-render";
+import { Spacer } from "../utils/tags";
 
 const Wrapper = styled.div`
+  font-family: "MaruBuri";
   padding-top: 42px;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 `;
 
 const Title = styled.span`
+  font-family: "MaruBuri";
   font-size: 1rem;
   color: var(--title-color);
   font-weight: bold;
@@ -25,13 +29,14 @@ const Image = styled.img`
 `;
 
 const Content = styled.p`
+  font-family: "MaruBuri";
   font-size: 0.875rem;
   line-height: 1.75;
   opacity: 0.75;
   width: 100%;
-  text-align: center;
+  text-align: left;
   padding-top: 42px;
-  padding-bottom: 42px;
+  padding-bottom: 10px;
   margin: 0;
 `;
 
@@ -41,6 +46,7 @@ const Map = styled.div`
 `;
 
 const TextStyle = styled.span`
+  font-family: "MaruBuri";
   font-weight: bold;
 `;
 
@@ -125,7 +131,7 @@ const Location = () => {
   return (
     <Wrapper>
       <Divider plain style={{ marginTop: 0, marginBottom: 32 }}>
-        <Title>오시는 길</Title>
+        <Title>LOCATION</Title>
       </Divider>
       <Image src={Flower} />
       <Map
@@ -133,47 +139,59 @@ const Location = () => {
         className="root_daum_roughmap root_daum_roughmap_landing"
       ></Map>
       <Content>
-        서울 영등포구 문래로 164 SK리더스뷰
+        서울특별시 영등포구 문래로 164
         <br />
-        JK아트컨벤션 4층 엠버루체홀
-        <br />
-        <br />
-        <Title>지하철 이용시</Title>
+        SK리더스뷰 JK아트컨벤션 4층 엠버루체홀
         <br />
         <br />
-        2호선 문래역 하차
+        <Title>
+          <Emoji text=":metro: 지하철 이용 시" style={{ fontFamily: 'MaruBuri'}} />
+        </Title>
+        <Spacer />
+        <span style={{ color: 'green', fontWeight: 'bold', fontFamily: 'MaruBuri'}}>2호선 문래역 </span>하차
         <br />
-        <br />
-        [셔틀버스] 4번 출구 (뒷편)
+        [셔틀] 4번 출구 (뒷편)
         <br />
         [도보] 5번 출구에서 전방 직진 300m
         <br />
         <br />
-        <Title>버스 이용시</Title>
+        <span style={{ color: 'blue', fontWeight: 'bold' , fontFamily: 'MaruBuri'}}>1호선 영등포역 </span>하차
+        <br />
+        [도보] 6번 출구에서 950m
         <br />
         <br />
+        <Title>
+          <Emoji text=":oncoming_bus: 버스 이용 시" style={{ fontFamily: 'MaruBuri'}}/>
+        </Title>
+        <Spacer />
         <TextStyle>문래역 정류장 하차</TextStyle>
         <br />
-        [지] 6211, 6625
-        [간] 641
-        [마] 영등포12
+        [지선] 6211, 6625
+        <br />
+        [간선] 641
+        <br />
+        [마을] 영등포12
         <br />
         <br />
-        문래주민센터 / 영일시장.록스 정류장 하차
+        <TextStyle>문래주민센터 / 영일시장.록스 정류장 하차</TextStyle>
         <br />
-        [마] 영등포05
-        <br />
-        <br />
-        벽산메가트리움APT 정류장 하차
-        <br />
-        [지] 6516
+        [마을] 영등포05
         <br />
         <br />
-        <Title>자가 이용시</Title>
+        <TextStyle>벽산메가트리움APT 정류장 하차</TextStyle>
         <br />
-        네비게이션에 "JK아트컨벤션" 또는 "문래동 SK리더스뷰" 검색
+        [지선] 6516
         <br />
-        2시간 무료 주차
+        <br />
+        <Title>
+          <Emoji text=":oncoming_automobile: 자가 이용 시" style={{ fontFamily: 'MaruBuri'}}/>
+        </Title>
+        <Spacer />
+        네비게이션에 "JK아트컨벤션"
+        <br />
+        또는 "문래동 SK리더스뷰" 검색
+        <Spacer />
+        웨딩홀 주차장 이용 시 2시간 무료 주차
         <br />
       </Content>
     </Wrapper>

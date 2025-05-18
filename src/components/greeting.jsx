@@ -10,11 +10,12 @@ import {
   BRIDE_MOTHER_NAME,
 } from "../../config";
 import Flower from "../assets/flower1.png";
+import { Spacer } from "../utils/tags";
 
 const Wrapper = styled.div`
   padding-top: 42px;
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
 `;
 
 const Title = styled.p`
@@ -27,113 +28,118 @@ const Title = styled.p`
 `;
 
 const Content = styled.p`
-  font-size: 0.72rem;
+  font-size: 0.7rem;
+  font-family: "MaruBuri";
   line-height: 1.75;
-  opacity: 0.75;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   width: 100%;
   text-align: center;
+  color: black;
 `;
 
-const GroomBride = styled.p`
-  font-size: 0.875rem;
+const GroomBride = styled.div`
+  font-family: "MaruBuri";
+  font-size: 0.65rem;
   line-height: 1.75;
   opacity: 0.85;
-  margin-bottom: 0px;
-  width: 100%;
+  margin: 0 auto;
+  width: 60%;
   text-align: center;
 `;
 
 const Naming = styled.span`
   font-weight: bold;
+  font-size: .9rem;
+  font-family: "MaruBuri";
 `;
 
 const Image = styled.img`
   display: block;
   margin: 0 auto;
   width: 1.375rem;
-  padding-bottom: 42px;
+  padding-bottom: 20px;
 `;
 
 const GroomText = () => {
   return (
-    <>
-      {GROOM_FATHER_NAME && GROOM_MOTHER_NAME ? (
-        <>
-          <Naming>{GROOM_FATHER_NAME}</Naming> 님과 <Naming>{GROOM_MOTHER_NAME}</Naming> 님
-        </>
-      ) : (
-        GROOM_FATHER_NAME ? (
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div>
+        {GROOM_FATHER_NAME && GROOM_MOTHER_NAME ? (
           <>
-            <Naming>{GROOM_FATHER_NAME}</Naming> 님
+            <Naming>{GROOM_FATHER_NAME}</Naming> · <Naming>{GROOM_MOTHER_NAME}</Naming>
           </>
         ) : (
-          <>
-            <Naming>{GROOM_MOTHER_NAME}</Naming> 님
-          </>
-        )
-      )}
-        <>
-          의 아들
+          GROOM_FATHER_NAME ? (
+            <>
+              <Naming>{GROOM_FATHER_NAME}</Naming>
+            </>
+          ) : (
+            <>
+              <Naming>{GROOM_MOTHER_NAME}</Naming>
+            </>
+          )
+        )}
+        의 차남
+      </div>
+      <div>
+          <Naming> {GROOM_NAME}</Naming>
           <br />
-          <Naming>{GROOM_NAME}</Naming>
-          <br />
-        </>
-    </>
+      </div>
+    </div>
   );
 }
 
 const BrideText = () => {
   return (
-    <>
-      {BRIDE_FATHER_NAME && BRIDE_MOTHER_NAME ? (
-        <>
-          <Naming>{BRIDE_FATHER_NAME}</Naming> 님과 <Naming>{BRIDE_MOTHER_NAME}</Naming> 님
-        </>
-      ) : (
-        BRIDE_FATHER_NAME ? (
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div>
+        {BRIDE_FATHER_NAME && BRIDE_MOTHER_NAME ? (
           <>
-            <Naming>{BRIDE_FATHER_NAME}</Naming> 님
+            <Naming>{BRIDE_FATHER_NAME}</Naming> · <Naming>{BRIDE_MOTHER_NAME}</Naming>
           </>
         ) : (
-          <>
-            <Naming>{BRIDE_MOTHER_NAME}</Naming> 님
-          </>
-        )
-      )}
-        <>
-          의 딸
-          <br />
-          <Naming>{BRIDE_NAME}</Naming>
-          <br />
-        </>
-    </>
+          BRIDE_FATHER_NAME ? (
+            <>
+              <Naming>{BRIDE_FATHER_NAME}</Naming>
+            </>
+          ) : (
+            <>
+              <Naming>{BRIDE_MOTHER_NAME}</Naming>
+            </>
+          )
+        )}
+          의 차녀
+      </div>
+      <div>
+        <Naming> {BRIDE_NAME}</Naming>
+        <br />
+      </div>
+    </div>
   );
 }
 
 const Greeting = () => {
   return (
     <Wrapper>
-      <Divider style={{ marginTop: 32, marginBottom: 32 }} plain>
-        <Title data-aos="fade-up">초대합니다</Title>
+      <Divider data-os="fade-up" style={{ marginTop: 32, marginBottom: 32 }} plain>
+        <Title>INVITATION</Title>
       </Divider>
-      <Image data-aos="fade-up" src={Flower} />
-      <Content data-aos="fade-up">
-        서로 마주 보며 다져온 사랑을
+      <Image src={Flower} />
+      <Content>
+        우연으로 만나, 인연이 된 사람과 필연을 맺고자 합니다.
         <br />
+        저희가 디딘 개별적인 걸음걸음이 오늘의 일부가 되었습니다.
+        <Spacer size="2rem" />
+        사랑이 다 지기 전에 저희들이 같은 수로
         <br />
-        이제 함께 한곳을 바라보며 걸어갈 수 있는
+        해와 달의 운행을 다시 셀 수 있도록
+        <Spacer size="2rem"/>
+        새로운 인생을 시작하는 자리에 오셔서
         <br />
-        <br />
-        큰 사랑으로 키우고자 합니다.
-        <br />
-        <br />
-        저희 두 사람이 사랑의 이름으로 지켜나갈 수 있게
-        <br />
-        <br />
-        앞날을 축복해 주시면 감사하겠습니다.
+        축하해 주시면 감사하겠습니다.
+        <Spacer size="2rem"/>
       </Content>
-      <GroomBride data-aos="fade-up">
+      <GroomBride>
         {GroomText()}
         <br />
         {BrideText()}

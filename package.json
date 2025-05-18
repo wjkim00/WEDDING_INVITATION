@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "wedding-invitation",
-  "author": "S-jooyoung",
+  "author": "Wonjin Kim",
   "keywords": [
     "gatsby"
   ],
@@ -23,7 +23,9 @@
     "react": "^17.0.1",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^17.0.1",
+    "react-emoji-render": "^2.0.1",
     "react-image-gallery": "^1.2.8",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "yet-another-react-lightbox": "^3.23.1"
   }
 }

@@ -35,8 +35,17 @@ const Title = styled.p`
   margin-bottom: 0;
 `;
 
+const ContentTitle = styled.p`
+  font-family: "MaruBuri";
+  font-size: 0.9;
+  font-weight: bold;
+  line-height: 1.75;
+  opacity: 0.75;
+`;
+
 const Content = styled.p`
-  font-size: 0.875rem;
+  font-family: "MaruBuri";
+  font-size: 0.775rem;
   line-height: 1.75;
   opacity: 0.75;
   margin-bottom: 42px;
@@ -62,11 +71,11 @@ const ButtonWrap = styled.div`
   flex-direction: row;
   justify-content: center;
   text-align: center;
+  margin-bottom: 0px;
 `;
 const ContactButton = styled.div`
   width: 10.75rem;
   border: 1px solid #efddde;
-  padding: 2.188rem 0;
 `;
 
 const Image = styled.img`
@@ -90,6 +99,9 @@ const CongratulatoryMoney = () => {
         <Title>축하의 마음을 전하세요</Title>
       </Divider>
       <Image src={Flower} />
+      <ContentTitle data-aos="fade-up">
+        신랑과 신부에게 마음 전하기
+      </ContentTitle>
       <Content data-aos="fade-up">
         축하의 마음을 담아 축의금을 전달해 보세요.
       </Content>

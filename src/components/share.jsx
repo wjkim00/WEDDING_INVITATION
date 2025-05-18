@@ -13,12 +13,13 @@ import {
 } from "../../config";
 
 const Wrapper = styled.div`
-  padding-top: 42px;
+  padding-top: 4rem;
   width: 100%;
   text-align: center;
 `;
 
 const Title = styled.span`
+  font-family: "MaruBuri";
   font-size: 1rem;
   color: var(--title-color);
   font-weight: bold;
@@ -72,7 +73,7 @@ const Share = () => {
         objectType: "feed",
         container: "#sendKakao",
         content: {
-          title: `${GROOM_NAME}❤${BRIDE_NAME} 결혼식에 초대합니다`,
+          title: `${GROOM_NAME.slice(1)}❤${BRIDE_NAME.slice(1)} 결혼식에 초대합니다`,
           description: "아래의 '청첩장 열기' 버튼을 눌러 읽어주세요🤵👰",
           imageUrl: KAKAOTALK_SHARE_IMAGE,
           link: {
@@ -115,7 +116,7 @@ const Share = () => {
         size="large"
         onClick={createKakaoButton}
       >
-        카카오톡으로 공유하기
+        <span style={{fontFamily: "MaruBuri"}}>카카오톡으로 공유하기</span>
       </KakaoTalkShareButton>
       <CopyToClipboard text={WEDDING_INVITATION_URL}>
         <LinkShareButton
@@ -124,7 +125,7 @@ const Share = () => {
           size="large"
           onClick={() => message.success("청첩장 링크가 복사되었습니다.")}
         >
-          링크로 공유하기
+          <span style={{fontFamily: "MaruBuri"}}>링크로 공유하기</span>
         </LinkShareButton>
       </CopyToClipboard>
     </Wrapper>

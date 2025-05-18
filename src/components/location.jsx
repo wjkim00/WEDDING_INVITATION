@@ -7,7 +7,7 @@ import { Spacer } from "../utils/tags";
 
 const Wrapper = styled.div`
   font-family: "MaruBuri";
-  padding-top: 42px;
+  padding-top: 4rem;
   width: 80%;
   margin: 0 auto;
 `;
@@ -28,7 +28,7 @@ const Image = styled.img`
   padding-bottom: 42px;
 `;
 
-const Content = styled.p`
+const Content = styled.div`
   font-family: "MaruBuri";
   font-size: 0.875rem;
   line-height: 1.75;
@@ -79,9 +79,9 @@ const Location = () => {
   const executeScript = () => {
     const scriptTag = document.createElement("script");
     const inlineScript = document.createTextNode(`new daum.roughmap.Lander({
-      "timestamp" : "1746867156702",
-      "key" : "2ny3n",
-      "mapWidth" : "640",
+      "timestamp" : "1747929663331",
+      "key" : "2o534",
+      "mapWidth" : "480",
       "mapHeight" : "360"
     }).render();`);
     scriptTag.appendChild(inlineScript);
@@ -92,7 +92,7 @@ const Location = () => {
   // document.write 문제가 발생해서 해당 파일을 직접 가져온다음 수정했음
   const InstallScript = () => {
     (function() {
-      var c = (window.location.protocol=="https:") ? "https:" : "http:";
+      var c = (window.location.protocol==="https:") ? "https:" : "http:";
       var a = "7a65d0c7";
       var p = "prod";
 
@@ -135,7 +135,7 @@ const Location = () => {
       </Divider>
       <Image src={Flower} />
       <Map
-        id="daumRoughmapContainer1746867156702"
+        id="daumRoughmapContainer1747929663331"
         className="root_daum_roughmap root_daum_roughmap_landing"
       ></Map>
       <Content>

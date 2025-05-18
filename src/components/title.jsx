@@ -8,7 +8,10 @@ import {
   GROOM_NAME_EN,
   BRIDE_NAME_EN,
 } from "../../config.js";
-import BackgroundVideo from "../assets/backgroundvv.mp4";
+
+import BackgroundVideoStiilCut from "../assets/BackgroundVideo_stillcut.webp";
+// import BackgroundVideo from "../assets/BackgroundVideo.webm";
+const BackgroundVideo = "https://cdn.jsdelivr.net/gh/wjkim00/WEDDING_INVITATION/src/assets/BackgroundVideo.webm"
 
 function VerticalLine() {
   return (
@@ -19,7 +22,7 @@ function VerticalLine() {
         alignItems: 'center',
         columnGap: '20px',
         padding: '20px',
-        height: '150px',
+        height: '200px',
       }}
     >
       <div></div>
@@ -112,7 +115,7 @@ const GroomBride = styled.p`
 
 const Schedule = styled.p`
   font-family: "MaruBuri";
-  font-size: .8rem;
+  font-size: .9rem;
   opacity: 0.65;
   margin-bottom: 24px;
 `;
@@ -137,8 +140,8 @@ const Title = () => {
           welcome to.
         </WelcomeMessage>
       </TitleLayout>
-      <VideoBackground autoPlay loop muted playsInline={true}>
-        <source src={BackgroundVideo} type="video/mp4" />
+      <VideoBackground autoPlay loop muted playsInline={true} preload="metadata" poster={BackgroundVideoStiilCut}>
+        <source src={BackgroundVideo} type="video/webm" />
       </VideoBackground>
       <Layout>
         <GroomBride>

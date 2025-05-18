@@ -13,12 +13,14 @@ import Flower from "../assets/flower1.png";
 import { Spacer } from "../utils/tags";
 
 const Wrapper = styled.div`
-  padding-top: 42px;
+  padding-top: 12rem;
   margin: 0 auto;
   width: 80%;
+  margin-bottom: 42px;
 `;
 
 const Title = styled.p`
+  font-family: "MaruBuri";
   font-size: 1rem;
   color: var(--title-color);
   font-weight: bold;
@@ -27,8 +29,8 @@ const Title = styled.p`
   text-align: center;
 `;
 
-const Content = styled.p`
-  font-size: 0.7rem;
+const Content = styled.div`
+  font-size: 0.9rem;
   font-family: "MaruBuri";
   line-height: 1.75;
   margin-bottom: 20px;
@@ -39,17 +41,17 @@ const Content = styled.p`
 
 const GroomBride = styled.div`
   font-family: "MaruBuri";
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   line-height: 1.75;
   opacity: 0.85;
   margin: 0 auto;
-  width: 60%;
+  width: 70%;
   text-align: center;
 `;
 
 const Naming = styled.span`
   font-weight: bold;
-  font-size: .9rem;
+  font-size: 1.1rem;
   font-family: "MaruBuri";
 `;
 
@@ -92,7 +94,7 @@ const GroomText = () => {
 const BrideText = () => {
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <div>
+      <div style={{ fontFamily: "MaruBuri" }}>
         {BRIDE_FATHER_NAME && BRIDE_MOTHER_NAME ? (
           <>
             <Naming>{BRIDE_FATHER_NAME}</Naming> · <Naming>{BRIDE_MOTHER_NAME}</Naming>
@@ -124,11 +126,15 @@ const Greeting = () => {
       <Divider data-os="fade-up" style={{ marginTop: 32, marginBottom: 32 }} plain>
         <Title>INVITATION</Title>
       </Divider>
-      <Image src={Flower} />
+      <Image data-os="fade-up"  src={Flower} />
       <Content>
-        우연으로 만나, 인연이 된 사람과 필연을 맺고자 합니다.
+        우연으로 만나, 인연이 된 사람과
         <br />
-        저희가 디딘 개별적인 걸음걸음이 오늘의 일부가 되었습니다.
+        필연을 맺고자 합니다.
+        <Spacer size="2rem" />
+        저희가 디딘 개별적인 걸음걸음이
+        <br />
+        오늘의 일부가 되었습니다.
         <Spacer size="2rem" />
         사랑이 다 지기 전에 저희들이 같은 수로
         <br />

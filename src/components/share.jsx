@@ -57,6 +57,12 @@ const LinkShareButton = styled(Button)`
     color: var(--title-color) !important;
   }
 `;
+
+const description_kakao = `
+
+2025년 9월 7일 일요일 오전 11시
+JK아트컨벤션 엠버루체홀
+`
 const Share = () => {
   const createKakaoButton = () => {
     // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
@@ -73,8 +79,8 @@ const Share = () => {
         objectType: "feed",
         container: "#sendKakao",
         content: {
-          title: `${GROOM_NAME.slice(1)}❤${BRIDE_NAME.slice(1)} 결혼식에 초대합니다`,
-          description: "아래의 '청첩장 열기' 버튼을 눌러 읽어주세요🤵👰",
+          title: `${GROOM_NAME.slice(1)}❤${BRIDE_NAME.slice(1)} 결혼식에 초대합니다.`,
+          description: description_kakao,
           imageUrl: KAKAOTALK_SHARE_IMAGE,
           link: {
             mobileWebUrl: window.location.href,

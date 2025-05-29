@@ -52,7 +52,7 @@ const SubContent = styled.p`
 `;
 
 const Description = styled.p`
-  font-size: 0.875rem;
+  font-size: 0.675rem;
   line-height: 1.75;
   opacity: 0.65;
   margin-top: 8px;

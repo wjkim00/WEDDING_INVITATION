@@ -123,11 +123,11 @@ const BrideText = () => {
 const Greeting = () => {
   return (
     <Wrapper>
-      <Divider data-os="fade-up" style={{ marginTop: 32, marginBottom: 32 }} plain>
+      <Divider data-aos="fade-up" style={{ marginTop: 32, marginBottom: 32 }} plain>
         <Title>INVITATION</Title>
       </Divider>
-      <Image data-os="fade-up"  src={Flower} />
-      <Content>
+      <Image data-aos="fade-up"  src={Flower} />
+      <Content data-aos="fade-up">
         우연으로 만나, 인연이 된 사람과
         <br />
         필연을 맺고자 합니다.

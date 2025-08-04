@@ -12,10 +12,10 @@ import {
 } from "../../config";
 
 const Wrapper = styled.div`
-  padding-top: 4rem;
+  padding-top: 2rem;
   padding-bottom: 18px;
   width: 70%;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   text-align: center;
 `;
 
@@ -92,7 +92,7 @@ const CongratulatoryMoney = () => {
       >
         <Title>축하의 마음을 전하세요</Title>
       </Divider>
-      <Image src={Flower} />
+      <Image src={Flower} data-aos="fade-up" />
       <ContentTitle data-aos="fade-up">
         신랑과 신부에게 마음 전하기
       </ContentTitle>
@@ -100,8 +100,8 @@ const CongratulatoryMoney = () => {
         축하의 마음을 담아 축의금을 전달해 보세요.
       </Content>
 
-      <ButtonWrap>
-        <ContactButton data-aos="fade-up" onClick={() => setGroomVisible(true)}>
+      <ButtonWrap data-aos="fade-up">
+        <ContactButton onClick={() => setGroomVisible(true)}>
           <CheckCircleTwoTone
             style={{ fontSize: 64, marginBottom: 16 }}
             twoToneColor="#829fe0"
@@ -109,7 +109,7 @@ const CongratulatoryMoney = () => {
           <br />
           <SubContent>신랑측 계좌번호 확인</SubContent>
         </ContactButton>
-        <ContactButton data-aos="fade-up" onClick={() => setBrideVisible(true)}>
+        <ContactButton onClick={() => setBrideVisible(true)}>
           <CheckCircleTwoTone
             style={{ fontSize: 64, marginBottom: 16 }}
             twoToneColor="#fe7daf"

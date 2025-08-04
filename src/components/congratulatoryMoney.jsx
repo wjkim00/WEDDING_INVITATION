@@ -100,11 +100,11 @@ const CongratulatoryMoney = () => {
       <ContentTitle data-aos="fade-up">
         신랑과 신부에게 마음 전하기
       </ContentTitle>
-      <Content data-aos="fade-up">
+      <Content>
         축하의 마음을 담아 축의금을 전달해 보세요.
       </Content>
 
-      <ButtonWrap data-aos="fade-up">
+      <ButtonWrap>
         <ContactButton onClick={() => setGroomVisible(true)}>
           <CheckCircleTwoTone
             style={{ fontSize: 64, marginBottom: 16 }}

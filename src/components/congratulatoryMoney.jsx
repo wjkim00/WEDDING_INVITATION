@@ -9,13 +9,17 @@ import {
   GROOM_ACCOUNT_NUMBER,
   BRIDE_NAME,
   BRIDE_ACCOUNT_NUMBER,
+  BRIDE_FATHER_NAME,
+  BRIDE_FATHER_ACCOUNT_NUMBER,
+  BRIDE_MOTHER_NAME,
+  BRIDE_MOTHER_ACCOUNT_NUMBER,
 } from "../../config";
 
 const Wrapper = styled.div`
   padding-top: 2rem;
   padding-bottom: 18px;
   width: 70%;
-  margin: 0 auto 2rem;
+  margin: 0 auto 4rem;
   text-align: center;
 `;
 
@@ -164,6 +168,32 @@ const CongratulatoryMoney = () => {
               onClick={() => message.success("계좌번호가 복사되었습니다.")}
             >
               <span style={{fontFamily: "MaruBuri"}}>{BRIDE_ACCOUNT_NUMBER}</span>
+            </Button>
+          </CopyToClipboard>
+        </div>
+        <div>
+          <b style={{ fontFamily: "MaruBuri" }}>신부 부(父) {BRIDE_FATHER_NAME}</b>
+          <Divider type="vertical" />
+          <CopyToClipboard text={BRIDE_FATHER_ACCOUNT_NUMBER}>
+            <Button
+              type="text"
+              style={{ padding: 0, margin: 0 }}
+              onClick={() => message.success("계좌번호가 복사되었습니다.")}
+            >
+              <span style={{fontFamily: "MaruBuri"}}>{BRIDE_FATHER_ACCOUNT_NUMBER}</span>
+            </Button>
+          </CopyToClipboard>
+        </div>
+        <div>
+          <b style={{ fontFamily: "MaruBuri" }}>신부 모(母) {BRIDE_MOTHER_NAME}</b>
+          <Divider type="vertical" />
+          <CopyToClipboard text={BRIDE_MOTHER_ACCOUNT_NUMBER}>
+            <Button
+              type="text"
+              style={{ padding: 0, margin: 0 }}
+              onClick={() => message.success("계좌번호가 복사되었습니다.")}
+            >
+              <span style={{fontFamily: "MaruBuri"}}>{BRIDE_MOTHER_ACCOUNT_NUMBER}</span>
             </Button>
           </CopyToClipboard>
         </div>

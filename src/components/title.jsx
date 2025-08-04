@@ -95,6 +95,8 @@ const TitleWrapper = styled.div`
 `;
 
 const VideoBackground = styled.video`
+  display: flex;
+  margin: 0 auto;
   @media (max-width: 767px) {
     /* mobile */
     width: 100%;

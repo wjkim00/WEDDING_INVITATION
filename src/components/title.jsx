@@ -95,7 +95,20 @@ const TitleWrapper = styled.div`
 `;
 
 const VideoBackground = styled.video`
-  width: 100%;
+  @media (max-width: 767px) {
+    /* mobile */
+    width: 100%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* tablet */
+    width: 80%;
+  }
+
+  @media (min-width: 1024px) {
+    /* desktop */
+    width: 60%;
+  }
 `;
 
 const WeddingInvitation = styled.p`

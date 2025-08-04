@@ -17,6 +17,7 @@ function App() {
             <meta property="og:type" content="website" />
             <meta property="og:image" content="https://cdn.jsdelivr.net/gh/wjkim00/WEDDING_INVITATION/src/assets/Thumbnails.webp" />
             <meta property="og:description" content="9월 7일 일요일 11시 JK아트컨벤션" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </Helmet>
         {!readyDone && <ReadyPage onFinish={() => setReadyDone(true)} />}
         <div className={readyDone ? 'visible' : 'hidden'}>
